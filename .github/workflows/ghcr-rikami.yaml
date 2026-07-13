@@ -9,6 +9,7 @@ jobs:
     permissions:
       packages: write
       contents: write
+      id-token: write
     uses: b-zago/actions/.github/workflows/ghcr-rikami.yaml@v1
     with:
       image-name: webserver
