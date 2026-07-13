@@ -1,0 +1,21 @@
+confs:
+  Chart@v0.0.1:
+    rikamiVersion: 0.2.12
+    appName: simple-test-api
+
+envs:
+  - prod:
+      WebServer@v0.0.1:
+        image: ghcr.io/b-zago/simple-test-api/webserver:latest
+        runsOn: python:3.14.6
+        port: 8000
+        Secret@v0.0.1:
+          data: "(( secFile `.env.web.server.envs.secret` | nindent 6 ))"
+        deployment:
+          envSecretRefs:
+            - "(( .Shards.WebServer.secret.name ))"
+          env: "(( envFile `.env` | nindent 4 ))"
+  - staging:
+      WebServer@v0.0.1:
+        route:
+          host: "(( .App ))-staging.(( .Domain ))"
