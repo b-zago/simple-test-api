@@ -6,7 +6,7 @@ confs:
 envs:
   - prod:
       WebServer@v0.0.1:
-        image: ghcr.io/b-zago/simple-test-api/webserver:latest
+        image: ghcr.io/b-zago/simple-test-api/webserver:1.0.1
         runsOn: python:3.14.6
         port: 8000
         Secret@v0.0.1:
