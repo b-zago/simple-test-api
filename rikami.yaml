@@ -7,7 +7,7 @@ envs:
   - prod:
       WebServer@v0.0.1:
         image: ghcr.io/b-zago/simple-test-api/webserver:1.0.6
-        runsOn: python:3.14.6
+        runsOn: python
         port: 8000
         Secret@v0.0.1:
           data: "(( secFile `.env.web.server.envs.secret` | nindent 6 ))"
