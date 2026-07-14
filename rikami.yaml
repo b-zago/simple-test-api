@@ -14,7 +14,7 @@ envs:
         deployment:
           envSecretRefs:
             - "(( .Shards.WebServer.secret.name ))"
-          env: "(( envFile `.env` | nindent 4 ))"
+          envVars: "(( envFile `.env` | nindent 4 ))"
   - staging:
       WebServer@v0.0.1:
         route:
